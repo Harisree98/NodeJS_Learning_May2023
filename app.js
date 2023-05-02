@@ -3,13 +3,12 @@ let app = express();
 let port = 3000;
 
 app.set('views','./views')
-
 app.set('view engine','ejs')
 
 let menu=[
     {link:'/',name:'Home'},
-    {link:'/category',name:'category'},
-    {link:'/products',name:'products'},
+    {link:'/category',name:'Category'},
+    {link:'/products',name:'Products'},
 ]
 
 const categoryRouter = require('./controllers/categories')(menu);
