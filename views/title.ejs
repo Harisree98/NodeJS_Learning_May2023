@@ -1,0 +1,11 @@
+<h1>From EJS <%=title%></h1>
+
+<nav class="collapse navbar-collapse" role="navigation">
+    <ul class="nav navbar-nav">
+      <% for(i=0;i<menu.length;i++){%>
+      <li>
+        <a href="<%=menu[i].link%>"><%=menu[i].name%></a>
+      </li>
+      <%}%>
+    </ul>
+  </nav>

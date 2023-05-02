@@ -1,0 +1,2 @@
+This is the file that got generated automatically with the fs.writefile function
+This is the easy way
