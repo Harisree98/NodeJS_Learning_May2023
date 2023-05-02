@@ -1,0 +1,37 @@
+//Having notes of the concepts
+
+
+
+
+//mongo DB
+
+To create a database
+query: use database_name
+Ex: use Students
+_________________________________________
+
+To see all the databases
+
+query:show dbs
+_______________________________________________
+
+To create a collection
+
+ex:db.createCollection('students')
+
+_______________________________________________________
+
+To insert a record(document) into collection
+query: db.collectionName.insert({})
+ex: db.studentName.insert({name:'hari,address:''hyd})
+___________________________________________________________
+
+To update a record in collection
+query:db.collectionName.update()
+ex: db.studentData.update({name:'sidhharth'},{$set:{'name':'sidhharth reddy'}})
+______________________________________________________________________________
+
+To drop a collection
+query: db.collectionName.drop()
+ex: db.studentData.drop()
+______________________________________________________________________________________
