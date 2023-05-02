@@ -2,8 +2,6 @@ const express = require('express');
 let app = express();
 let port = 3000;
 
-const productRouter = require('./controllers/products')
-
 app.set('views','./views')
 
 app.set('view engine','ejs')
@@ -15,12 +13,13 @@ let menu=[
 ]
 
 const categoryRouter = require('./controllers/categories')(menu);
+const productRouter = require('./controllers/products')(menu)
 
 //routes
 
 app.get('/',function(req,res){
     //res.send('This is the default Route');
-    res.render('title',{title:'This is the heading part Harisree. This is the home page',menu})
+    res.render('title',{title:'This is the home page',menu})
 })
 // app.get('/category',function(req,res){
 //     res.send('This is category route')
