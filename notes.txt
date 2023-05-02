@@ -1,9 +1,10 @@
 //Having notes of the concepts
 
 
+//To know the version of mongodb installed in your machine
+mongod --version
 
-
-//mongo DB
+// queries - mongo DB
 
 To create a database
 query: use database_name
@@ -18,7 +19,6 @@ _______________________________________________
 To create a collection
 
 ex:db.createCollection('students')
-
 _______________________________________________________
 
 To insert a record(document) into collection
@@ -31,7 +31,91 @@ query:db.collectionName.update()
 ex: db.studentData.update({name:'sidhharth'},{$set:{'name':'sidhharth reddy'}})
 ______________________________________________________________________________
 
+To drop a database
+query: db.dropDatabase()
+________________________________________________________________________________
+
 To drop a collection
 query: db.collectionName.drop()
 ex: db.studentData.drop()
 ______________________________________________________________________________________
+
+To remove a document
+query:db.collectionName.remove()
+ex: db.studentData.remove({ _id: ObjectId("6098d07816350a584b46a59d") }, { justOne: true })
+
+the parameter just once is optional. Note that if you only want to remove a single document that matches the specified criteria,
+ you can add the justOne: true option to the command
+
+ _____________________________________________________________________________
+To check the database that we are currently in 
+query: db
+___________________________________________________________________________
+
+To check the statistics of a database
+query:db.stats()
+It will provide the info about the things like storagesize, the no of collections,views,objects etc
+______________________________________________________________________________
+
+To beautify the results use pretty()
+query: db.collectionName.find({}).pretty()
+ex: db.studentData.find({}).pretty()
+
+this gives the data in a readble format
+______________________________________________________________________________________
+
+
+CREATE 
+
+INSERT -> INSERT, INSERT
+
+DELETE 
+
+UPDATE  - > UPDATE , UPDATEONE, UPDATEMANY
+
+REMOVE  
+
+DROP 
+
+________________________________________________________________________
+
+to Insertone document(record) into a collection
+query : db.collectionName.insertOne()
+ex: db.studentData.insertOne({name:'priya',age:35})
+____________________________________________________________________________________________
+
+to insertMany records (documents) at a time into a collection 
+
+query:db.collectionName.insertMany([{document1},{document2},{document3}])
+ex: db.studentData.insertMany([{name:'shiv',age:34,address:{city:'dehradun',street:'pandiyan kovil'}},{name:'helena',age:36,address:{city:'newyork',street:'times square'}}])
+________________________________________________________________________________________________________________________-
+
+to updateOne document(record) in a collection
+
+query: db.collectionName.updateOne({keytoupdate},{set command/condition})
+ex: db.studentData.updateOne({name:'shiv'},{$set:{"address.street":'rajpur road'}})
+______________________________________________________________________________________________
+
+updating the spelling mistake of a key in a nested object
+query: db.collectionName.updateOne({specific document(give either id or any other unique field)},{$rename:{'existingField','newField'}})
+ex: db.studentData.updateOne({name:'shiv'},{$rename:{'professtion':'profession'}})
+________________________________________________________________________________________________________________________
+
+update Many records in a collection
+query: db.collectionName.updateMany({filter},{set command})
+ex: db.studentData.updateMany({"age":{$lt:30}},{$set:{"not eligible":true}})
+_________________________________________________________________________________-
+
+remove a field from all documents in a collection
+
+query: db.collectionName.updateMany({},{$unset:{'fieldName':''}})
+ex: db.studentData.updateMany({},{$unset:{'not eligible':''}})
+
+This removes the field (key value pair) 'not eligible' in all the documents in the collection
+_____________________________________________________________________________-
+
+Find the student documents whose age is greater than 30 
+query:db.collectionName.find({fieldname:{condition}})
+ex: db.studentData.find({age:{$gt:30}})
+________________________________________________________________________
+
