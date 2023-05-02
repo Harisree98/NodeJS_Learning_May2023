@@ -4,6 +4,8 @@
 //To know the version of mongodb installed in your machine
 mongod --version
 
+//when we create a collection inside a database then only that database will be visible when we query "show dbs"
+
 // queries - mongo DB
 
 To create a database
@@ -65,17 +67,15 @@ this gives the data in a readble format
 ______________________________________________________________________________________
 
 
-CREATE 
+CREATE ->create database, create collection, create document
 
-INSERT -> INSERT, INSERT
-
-DELETE 
+INSERT -> INSERT, INSERTONE, INSERTMANY
 
 UPDATE  - > UPDATE , UPDATEONE, UPDATEMANY
 
-REMOVE  
+REMOVE  ->remove document
 
-DROP 
+DROP ->dropdatabase, dropcollection
 
 ________________________________________________________________________
 
