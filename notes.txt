@@ -119,3 +119,26 @@ query:db.collectionName.find({fieldname:{condition}})
 ex: db.studentData.find({age:{$gt:30}})
 ________________________________________________________________________
 
+to get the list of all queries that can be used in mongo
+query:db.help()
+___________________________________________________________________________________
+
+to find the documents(records) that are in between the age >=20 and <=35
+
+query: db.studentData.find({age:{$gte:20,$lte:35}})
+_______________________________________________________________________________________________---
+
+to find the documents(records) that has names either 'shiv' or 'helena'
+ db.studentData.find({name:{$in:['shiv','helena']}})
+ _________________________________________________________________________________
+
+ $gt
+ $lt
+ $gte
+ $lte
+ $eq
+ $or
+ $and
+ 
+
+
